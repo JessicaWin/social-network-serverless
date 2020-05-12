@@ -1,6 +1,8 @@
 package com.jessica.social.network.serverless.vo;
 
 import com.jessica.social.network.serverless.bo.UserBo;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,13 +15,20 @@ import java.util.UUID;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ApiModel(value = "UserVo", description = "data model for user")
 public class UserVo {
+    @ApiModelProperty(required = false)
     private String id;
+    @ApiModelProperty(required = true, allowEmptyValue = false)
     private String userName;
+    @ApiModelProperty(required = true, allowEmptyValue = false)
     private String password;
+    @ApiModelProperty(required = false)
     private String email;
+    @ApiModelProperty(required = false)
     private String imageName;
-    
+
+    @ApiModelProperty(hidden = true)
     public boolean isValid() {
         return StringUtils.isNotBlank(this.userName)
                 && StringUtils.isNotBlank(this.password);
