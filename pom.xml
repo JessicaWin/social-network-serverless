@@ -30,6 +30,7 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--project modules-->
             <dependency>
                 <groupId>com.jessica</groupId>
                 <artifactId>social-network-serverless-web</artifactId>
@@ -59,6 +60,27 @@
                 <groupId>com.jessica</groupId>
                 <artifactId>social-network-serverless-common</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!--aws service-->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>1.11.327</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--tool-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.10</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

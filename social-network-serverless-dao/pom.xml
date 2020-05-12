@@ -20,5 +20,11 @@
             <groupId>com.jessica</groupId>
             <artifactId>social-network-serverless-common</artifactId>
         </dependency>
+
+        <!--spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
     </dependencies>
 </project>
