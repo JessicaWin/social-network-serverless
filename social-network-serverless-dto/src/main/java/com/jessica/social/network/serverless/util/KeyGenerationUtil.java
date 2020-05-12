@@ -1,7 +1,5 @@
 package com.jessica.social.network.serverless.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

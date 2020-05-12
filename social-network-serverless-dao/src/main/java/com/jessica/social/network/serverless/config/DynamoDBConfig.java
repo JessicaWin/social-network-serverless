@@ -1,4 +1,4 @@
-package com.jessica.social.network.serverless.dao;
+package com.jessica.social.network.serverless.config;
 
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
