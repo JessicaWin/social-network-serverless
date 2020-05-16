@@ -11,7 +11,7 @@ public class Swagger2Config {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2).select()
-            .apis(RequestHandlerSelectors.basePackage("com.jessica.social.network.serverless.controller"))
+            .apis(RequestHandlerSelectors.basePackage("com.jessica.social.network.serverless"))
             .build();
     }
 }

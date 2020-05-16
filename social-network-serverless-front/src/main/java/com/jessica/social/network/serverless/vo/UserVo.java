@@ -8,7 +8,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.lang.Nullable;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Data
@@ -17,22 +20,21 @@ import java.util.UUID;
 @NoArgsConstructor
 @ApiModel(value = "UserVo", description = "data model for user")
 public class UserVo {
-    @ApiModelProperty(required = false)
+    @ApiModelProperty(required = false, notes = "do not need to set when post request, will only be used when return data")
+    @Nullable
     private String id;
-    @ApiModelProperty(required = true, allowEmptyValue = false)
+    @ApiModelProperty(required = true, allowEmptyValue = false, notes = "length should between 6 and 30")
+    @NotBlank
+    @Size(min= 6, max = 30)
     private String userName;
-    @ApiModelProperty(required = true, allowEmptyValue = false)
+    @ApiModelProperty(required = true, allowEmptyValue = false, notes = "length should between 6 and 30")
+    @NotBlank
+    @Size(min= 6, max = 30)
     private String password;
     @ApiModelProperty(required = false)
     private String email;
     @ApiModelProperty(required = false)
     private String imageName;
-
-    @ApiModelProperty(hidden = true)
-    public boolean isValid() {
-        return StringUtils.isNotBlank(this.userName)
-                && StringUtils.isNotBlank(this.password);
-    }
 
     public UserBo toBo() {
         return  UserBo.builder()
@@ -56,6 +58,4 @@ public class UserVo {
                 .imageName(userBo.getImageName())
                 .build();
     }
-
-
 }
