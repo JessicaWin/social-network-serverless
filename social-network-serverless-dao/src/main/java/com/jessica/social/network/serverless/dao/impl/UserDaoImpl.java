@@ -5,5 +5,5 @@ import com.jessica.social.network.serverless.item.UserItem;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDaoImpl extends  BasicOperationDaoImpl<UserItem> implements UserDao {
+public class UserDaoImpl extends BasicOperationDaoImpl<UserItem> implements UserDao {
 }

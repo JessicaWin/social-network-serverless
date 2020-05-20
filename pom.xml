@@ -26,6 +26,7 @@
         <module>social-network-serverless-dao</module>
         <module>social-network-serverless-dto</module>
         <module>social-network-serverless-common</module>
+        <module>social-network-serverless-aws</module>
     </modules>
 
     <dependencyManagement>
@@ -61,12 +62,31 @@
                 <artifactId>social-network-serverless-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.jessica</groupId>
+                <artifactId>social-network-serverless-aws</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--servlet-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>3.1.0</version>
+            </dependency>
 
             <!--aws service-->
             <dependency>
                 <groupId>com.amazonaws</groupId>
                 <artifactId>aws-java-sdk-bom</artifactId>
-                <version>1.11.327</version>
+                <version>1.11.784</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-xray-recorder-sdk-bom</artifactId>
+                <version>2.4.0</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -82,6 +102,8 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>4.4</version>
             </dependency>
+
+            <!--swagger-->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger2</artifactId>

@@ -9,7 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public class  BasicOperationDaoImpl<T extends BasicItem>  implements BasicOperationDao<T>  {
+@Repository
+public class BasicOperationDaoImpl<T extends BasicItem> implements BasicOperationDao<T> {
     @Autowired
     private DynamoDBMapper mapper;
 
