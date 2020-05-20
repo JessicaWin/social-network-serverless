@@ -3,7 +3,6 @@ package com.jessica.social.network.serverless.controller;
 import com.jessica.social.network.serverless.bo.UserBo;
 import com.jessica.social.network.serverless.service.UserService;
 import com.jessica.social.network.serverless.vo.UserVo;
-import org.apache.http.HttpStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
