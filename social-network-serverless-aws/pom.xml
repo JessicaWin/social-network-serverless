@@ -21,6 +21,10 @@
             <groupId>com.amazonaws</groupId>
             <artifactId>aws-xray-recorder-sdk-aws-sdk</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-xray-recorder-sdk-spring</artifactId>
+        </dependency>
 
         <!--servlet-->
         <dependency>
@@ -49,6 +53,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
         </dependency>
     </dependencies>
 
