@@ -27,6 +27,7 @@
         <module>social-network-serverless-dto</module>
         <module>social-network-serverless-common</module>
         <module>social-network-serverless-aws</module>
+        <module>social-network-serverless-lambda</module>
     </modules>
 
     <dependencyManagement>
@@ -67,6 +68,11 @@
                 <artifactId>social-network-serverless-aws</artifactId>
                 <version>${project.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.jessica</groupId>
+                <artifactId>social-network-serverless-lambda</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!--servlet-->
             <dependency>
@@ -89,6 +95,11 @@
                 <version>2.4.0</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.amazonaws.serverless</groupId>
+                <artifactId>aws-serverless-java-container-springboot2</artifactId>
+                <version>1.5</version>
             </dependency>
 
             <!--tool-->
