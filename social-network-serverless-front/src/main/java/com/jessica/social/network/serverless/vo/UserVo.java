@@ -20,9 +20,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @ApiModel(value = "UserVo", description = "data model for user")
 public class UserVo {
-    @ApiModelProperty(required = false, notes = "do not need to set when post request, will only be used when return data")
-    @Nullable
-    private String id;
     @ApiModelProperty(required = true, allowEmptyValue = false, notes = "length should between 6 and 30")
     @NotBlank
     @Size(min= 6, max = 30)
@@ -38,7 +35,6 @@ public class UserVo {
 
     public UserBo toBo() {
         return  UserBo.builder()
-                .id(UUID.randomUUID().toString())
                 .userName(this.userName)
                 .password(this.password)
                 .email(this.email)
@@ -51,7 +47,6 @@ public class UserVo {
             return null;
         }
         return UserVo.builder()
-                .id(userBo.getId())
                 .userName(userBo.getUserName())
                 .password(userBo.getPassword())
                 .email(userBo.getEmail())

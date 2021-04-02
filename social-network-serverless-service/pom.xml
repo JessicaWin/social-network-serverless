@@ -13,6 +13,11 @@
     <dependencies>
         <dependency>
             <groupId>com.jessica</groupId>
+            <artifactId>common-user</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jessica</groupId>
             <artifactId>social-network-serverless-dao</artifactId>
         </dependency>
         <dependency>

@@ -1,9 +1,9 @@
 package com.jessica.social.network.serverless.service.impl;
 
 import com.jessica.social.network.serverless.bo.UserBo;
-import com.jessica.social.network.serverless.dao.UserDao;
-import com.jessica.social.network.serverless.item.UserItem;
 import com.jessica.social.network.serverless.service.UserService;
+import com.jessica.user.dao.UserDao;
+import com.jessica.user.dto.UserItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,11 +22,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteById(String id) {
-        if (id == null) {
+    public void deleteUser(String userName) {
+        if (userName == null) {
             return;
         }
-        this.userDao.delete(UserItem.builder().id(id).build());
+        this.userDao.delete(UserItem.builder().userName(userName).build());
     }
 
     @Override
@@ -38,10 +38,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserBo getById(String id) {
-        if (id == null) {
+    public UserBo getUser(String userName) {
+        if (userName == null) {
             return null;
         }
-        return UserBo.fromItem(this.userDao.load(UserItem.builder().id(id).build()));
+        return UserBo.fromItem(this.userDao.load(UserItem.builder().userName(userName).build()));
     }
 }

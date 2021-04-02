@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 @Validated
 public class UserController {
     @Autowired
@@ -26,7 +26,7 @@ public class UserController {
 
     @RequestMapping(path = "/{id}", method = RequestMethod.DELETE)
     public void deleteUserById(@PathVariable String id) {
-        this.userService.deleteById(id);
+        this.userService.deleteUser(id);
     }
 
     @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
@@ -38,7 +38,7 @@ public class UserController {
 
     @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public UserVo getUserById(@PathVariable String id) {
-        UserBo userBo = this.userService.getById(id);
+        UserBo userBo = this.userService.getUser(id);
         return UserVo.fromBo(userBo);
     }
 }

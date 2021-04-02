@@ -1,8 +1,6 @@
 package com.jessica.social.network.serverless.bo;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIgnore;
-import com.jessica.social.network.serverless.item.UserItem;
+import com.jessica.user.dto.UserItem;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserBo {
-    private String id;
     private String userName;
     private String password;
     private String email;
@@ -21,7 +18,6 @@ public class UserBo {
 
     public UserItem toItem() {
         return UserItem.builder()
-                .id(this.id)
                 .userName(this.userName)
                 .password(this.password)
                 .email(this.email)
@@ -34,7 +30,6 @@ public class UserBo {
             return null;
         }
         return UserBo.builder()
-                .id(userItem.getId())
                 .userName(userItem.getUserName())
                 .password(userItem.getPassword())
                 .email(userItem.getEmail())

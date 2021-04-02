@@ -12,6 +12,11 @@
     <artifactId>social-network-serverless-dto</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.jessica</groupId>
+            <artifactId>common-dynamodb</artifactId>
+        </dependency>
+
         <!--aws service-->
         <dependency>
             <groupId>com.amazonaws</groupId>

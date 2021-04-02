@@ -17,6 +17,9 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <common.library.version>1.0-SNAPSHOT</common.library.version>
     </properties>
 
     <modules>
@@ -72,6 +75,23 @@
                 <groupId>com.jessica</groupId>
                 <artifactId>social-network-serverless-lambda</artifactId>
                 <version>${project.version}</version>
+            </dependency>
+
+            <!--common library-->
+            <dependency>
+                <groupId>com.jessica</groupId>
+                <artifactId>common-dynamodb</artifactId>
+                <version>${common.library.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jessica</groupId>
+                <artifactId>common-user</artifactId>
+                <version>${common.library.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jessica</groupId>
+                <artifactId>jwt-auth</artifactId>
+                <version>${common.library.version}</version>
             </dependency>
 
             <!--servlet-->

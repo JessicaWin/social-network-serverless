@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>com.jessica</groupId>
+            <artifactId>common-dynamodb</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jessica</groupId>
             <artifactId>social-network-serverless-dto</artifactId>
         </dependency>
         <dependency>

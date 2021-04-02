@@ -11,9 +11,9 @@ public interface UserService {
 
     /**
      *
-     * @param id
+     * @param userName
      */
-    void deleteById(String id);
+    void deleteUser(String userName);
 
     /**
      *
@@ -23,8 +23,8 @@ public interface UserService {
 
     /**
      *
-     * @param id
+     * @param userName
      * @return
      */
-    UserBo getById(String id);
+    UserBo getUser(String userName);
 }
