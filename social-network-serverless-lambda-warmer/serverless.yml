@@ -1,0 +1,72 @@
+service: social-network-serverless-lambda-warmer
+
+custom:
+  configFile: ${file(../config.yml)}
+  warmupEvents: ${file(./event.json)}
+
+provider:
+  name: aws
+  stage: ${self:custom.configFile.stage}
+  variant: ${self:custom.configFile.variant}
+  runtime: java8
+  region: ${self:custom.configFile.region}
+  timeout: 300
+  memorySize: 512
+  versionFunctions: false
+  deploymentBucket: ${self:custom.configFile.deploymentBucket}
+  environment: ${file(../config.yml)}
+  stackName: ${self:provider.stage}-${self:provider.variant}-${self:service}
+
+package:
+  artifact: target/social-network-serverless-lambda-warmer.jar
+
+functions:
+  LambdaWarmer:
+    name: ${self:provider.stage}-${self:custom.configFile.variant}-warmup
+    handler: com.jessica.social.network.serverless.tools.handler.LambdaWarmer
+    role: !GetAtt [LambdaWarmerExecutionRole, Arn]
+    events:
+      - schedule:
+         name: ${self:provider.stage}-${self:custom.configFile.variant}-lambda-warmup-scheduler
+         description: Tries to warm up
+         rate: rate(5 minutes)
+         enabled: true
+         input: ${self:custom.warmupEvents}
+
+resources:
+  Resources:
+    InvokeLambdaFunctionPolicy:
+      Type: AWS::IAM::ManagedPolicy
+      Properties:
+        ManagedPolicyName: !Sub "${self:provider.stage}_InvokeLambdaFunctionPolicy"
+        PolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Action:
+                - lambda:InvokeFunction
+                - lambda:ListVersionsByFunction
+                - lambda:CreateAlias
+                - lambda:GetAlias
+                - lambda:ListAliases
+                - lambda:DeleteAlias
+                - lambda:DeleteFunction
+                - lambda:ListLayerVersions
+                - lambda:ListFunctions
+              Resource: "*"
+    LambdaWarmerExecutionRole:
+      Type: AWS::IAM::Role
+      Properties:
+        RoleName: !Sub "${self:provider.stage}_LambdaWarmerExecutionRole"
+        AssumeRolePolicyDocument:
+          Version: "2012-10-17"
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        ManagedPolicyArns:
+          - arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
+          - !Ref InvokeLambdaFunctionPolicy
+        

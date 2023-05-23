@@ -1,0 +1,18 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Cloudformation Template For release-build-preparation. It is used for creating deployment related S3 buckets
+Parameters:
+  Stage:
+    Type: String
+    Default: develop
+    Description: the stage of the environment like develop, evaluation, staging, commercial
+
+Resources:
+  DeploymentBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Stage}-social-network-deploy"
+      CorsConfiguration:
+        CorsRules:
+        - AllowedHeaders: ['*']
+          AllowedMethods: [GET, PUT, HEAD, POST, DELETE]
+          AllowedOrigins: ['*']

@@ -12,3 +12,5 @@ deploymentBucket: ${self:provider.stage}-social-network-deploy
 # AWS Account ID
 ACCOUNT_ID:
   Ref: 'AWS::AccountId'
+
+JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1

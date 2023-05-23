@@ -1,0 +1,11 @@
+{
+  "detail": {
+    "socialNetworkServerless": {
+      "skip": false,
+      "concurrency": 10,
+      "payload": {
+        "flag": "warmer"
+      }
+    }
+  }
+}
